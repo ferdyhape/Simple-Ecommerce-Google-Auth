@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
-use App\Models\Category;
 
 class ProductController extends Controller
 {
@@ -53,8 +54,11 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        // dd($request);
+
         $newProduct = $request->all();
+
+        $name_image_path = $request->file('image')->store('product-images', 'public');
+        $newProduct['image'] = $name_image_path;
 
         Product::create($newProduct);
 
@@ -94,9 +98,18 @@ class ProductController extends Controller
     {
 
         $updatedProduct = $request->all();
-        // dd($updatedProduct);
-        $product = Product::find($product->id);
-        // dd($product);
+
+        if ($request->file('image')) {
+            if ($request->old_image != "product-images/current-image.png") {
+                File::delete('storage/' . $request->old_image);
+            }
+            $name_image_path = $request->file('image')->store('product-images', 'public');
+            $updatedProduct['image'] = $name_image_path;
+        } else {
+            $updatedProduct['image'] = $request->old_image;
+        }
+
+        unset($updatedProduct['old_image']);
         $product->update($updatedProduct);
 
         return redirect('/dashboard/product')->with('toast_success', 'Data successfully updated');
@@ -110,8 +123,10 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        $productDelete = Product::find($product->id);
-        $productDelete->delete();
+        if ($product->image != "product-images/current-image.png") {
+            File::delete('storage/' . $product->image);
+        }
+        $product->delete();
         return redirect('/dashboard/product')->with('toast_success', 'Data successfully deleted');
     }
 }
