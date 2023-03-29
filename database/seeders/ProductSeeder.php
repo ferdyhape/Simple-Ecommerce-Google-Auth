@@ -20,58 +20,66 @@ class ProductSeeder extends Seeder
         Product::create([
             'name' => 'Nasi Goreng',
             'price' => '10000',
-            'sum' => '20',
+            'stock' => '20',
             'category_id' => 1,
             'description' => $faker->sentence(5),
+            'image' => 'product-images/current-image.png',
         ]);
         Product::create([
             'name' => 'Nasi Bakar',
             'price' => '12000',
-            'sum' => '30',
+            'stock' => '30',
             'category_id' => 1,
             'description' => $faker->sentence(5),
+            'image' => 'product-images/current-image.png',
         ]);
         Product::create([
             'name' => 'Nasi Tidak Goreng',
             'price' => '11000',
-            'sum' => '23',
+            'stock' => '23',
             'category_id' => 1,
             'description' => $faker->sentence(5),
+            'image' => 'product-images/current-image.png',
         ]);
         Product::create([
             'name' => 'Nasi Tidak Bakar',
             'price' => '11000',
-            'sum' => '10',
+            'stock' => '10',
             'category_id' => 1,
             'description' => $faker->sentence(5),
+            'image' => 'product-images/current-image.png',
         ]);
         Product::create([
             'name' => 'Es Teh',
             'price' => '5000',
-            'sum' => '87',
+            'stock' => '87',
             'category_id' => 2,
             'description' => $faker->sentence(5),
+            'image' => 'product-images/current-image.png',
         ]);
         Product::create([
             'name' => 'Es Teh Anget',
             'price' => '7000',
-            'sum' => '22',
+            'stock' => '22',
             'category_id' => 2,
             'description' => $faker->sentence(5),
+            'image' => 'product-images/current-image.png',
         ]);
         Product::create([
             'name' => 'Es Bukan Teh',
             'price' => '5000',
-            'sum' => '10',
+            'stock' => '10',
             'category_id' => 2,
             'description' => $faker->sentence(5),
+            'image' => 'product-images/current-image.png',
         ]);
         Product::create([
             'name' => 'Es Teh Tidak Manis',
             'price' => '5000',
-            'sum' => '10',
+            'stock' => '10',
             'category_id' => 2,
             'description' => $faker->sentence(5),
+            'image' => 'product-images/current-image.png',
         ]);
     }
 }
