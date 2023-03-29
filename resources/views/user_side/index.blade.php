@@ -1,11 +1,12 @@
 @extends('layouts.user_side.master')
 @section('title', 'SayonaraSHOP')
 @section('content')
-    <div class="container py-5">
+    <div class="container py-4">
         <div class="row justify-content-center">
             @foreach ($products as $product)
                 <div class="col-3 my-3">
-                    <div class="card shadow-sm border-0 text-black px-2">
+                    <div class="card shadow-sm border-0 text-black ">
+                        <img src="{{ asset('storage/' . $product->image) }}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <div class="text-start">
                                 <h5 class="card-title">{{ $product->name }}</h5>
@@ -18,7 +19,7 @@
                                 </div>
 
                             </div>
-                            <div class="d-flex justify-content-between font-weight-bold mt-4">
+                            <div class="d-flex justify-content-between font-weight-bold mt-2">
                                 <span class="text-muted">{{ $product->category->name }}</span>
                                 <span>@toRP($product->price)</span>
                             </div>
