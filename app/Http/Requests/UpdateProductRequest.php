@@ -26,9 +26,11 @@ class UpdateProductRequest extends FormRequest
         return [
             'name' => 'required|string|min:3|max:255',
             'price' => 'required|integer',
-            'sum' => 'required|integer',
+            'stock' => 'required|integer',
             'description' => 'nullable|string',
             'category_id' => 'integer|exists:categories,id',
+            'image' => 'nullable|mimes:png,jpg,jpeg|max:2048',
+            'old_image' => 'required|exists:products,image',
         ];
     }
     public function messages()
