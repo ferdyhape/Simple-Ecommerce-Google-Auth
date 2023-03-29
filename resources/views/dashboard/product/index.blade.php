@@ -95,15 +95,15 @@
                         </div>
                         <div class="input-group mb-2">
                             <label class="input-group-text" for="image">Image</label>
-                            <input type="file" class="form-control @error('image') is-invalid @enderror" id="image"
-                                name="image" onchange="previewImageCreate()">
+                            <input type="file" class="form-control @error('image') is-invalid @enderror" id="imageEdit"
+                                name="image" onchange="previewImageEdit()">
                             @error('image')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
-                        <img class="img-preview-create img-fluid mx-auto" id="img-preview-create" style="display: none">
+                        <img class="img-preview-edit img-fluid mx-auto" style="display: none">
                         <input type="hidden" value="" name="old_image" id="input_old_image">
                 </div>
 
@@ -149,7 +149,7 @@
                             @enderror
                         </div>
                         <div class="form-group mb-2">
-                            <input type="text"
+                            <input type="number"
                                 class="form-control form-control-product @error('stock') is-invalid @enderror"
                                 name="stock" placeholder="Stock" required>
                             @error('stock')
@@ -187,14 +187,14 @@
                         <div class="input-group mb-2">
                             <label class="input-group-text" for="image">Image</label>
                             <input type="file" class="form-control @error('image') is-invalid @enderror"
-                                id="image" name="image" onchange="previewImageCreate()">
+                                id="imageCreate" name="image" onchange="previewImageCreate()">
                             @error('image')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
-                        <img class="img-preview-create img-fluid mx-auto" id="img-preview-create" style="display: none">
+                        <img class="img-preview-create img-fluid mx-auto" style="display: none">
 
                 </div>
                 <div class="modal-footer">

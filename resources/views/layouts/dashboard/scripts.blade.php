@@ -162,8 +162,22 @@
         });
 
         function previewImageCreate() {
-            const image = document.querySelector('#image');
+            const image = document.querySelector('#imageCreate');
             const imgPreview = document.querySelector('.img-preview-create')
+
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
+
+        function previewImageEdit() {
+            const image = document.querySelector('#imageEdit');
+            const imgPreview = document.querySelector('.img-preview-edit')
 
             imgPreview.style.display = 'block';
 
