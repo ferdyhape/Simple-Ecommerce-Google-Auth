@@ -5,20 +5,67 @@ Name: ``` Ferdy Hahan Pradana ```
 
 Campus: ``` Politeknik Negeri Malang ```
 
+## :pushpin: Description
+This repository was created to fulfill the Tugas 6 assignment in the Independent Fullstack Web Developer Study program by GITS.id partner, MSIB Batch 4.
 
-## :key: Login
-Email: 
+## :open_book: How To Use
+1. Clone this repository
 ```
-ferdy@hape.com
-```
-
-Password: 
-```
-password
+git clone https://github.com/ferdyhape/latihan_minibos_gits.git
 ```
 
-## :open_book: Description
-This repository was created to fulfill the Laravel Cart CRUD assignment in the Independent Fullstack Web Developer Study program by GITS.id partner, MSIB Batch 4.
+2. Copy paste **.env.example** file and rename as **.env**
+3. Adjust the database name in the env file on **DB_DATABASE**
+
+3. Generate Key
+```
+php artisan key:generate
+```
+4. Install dependencies
+```
+composer install
+```
+5. Migrate the tables
+```
+php artisan migrate
+```
+
+6. Insert the data from seeder to database
+```
+php artisan db:seed
+```
+
+7. Start the server
+```
+php artisan serve
+```
+
+8. Login with this crediential
+
+    - If you want to use admin role (can dashboard access):
+
+        Email: 
+        ```
+        ferdy@hape.com
+        ```
+
+        Password: 
+        ```
+        password
+        ```
+    - If you want to use non admin role (can't dashboard access):
+
+        Email: 
+        ```
+        ferdynonadmin@hape.com
+        ```
+
+        Password: 
+        ```
+        password
+        ```
+        
+7. Enjoy use!
 
 ## :gear: Technology Used:
 
@@ -29,31 +76,7 @@ This repository was created to fulfill the Laravel Cart CRUD assignment in the I
  - BootstrapIcon
  - BoxIcon
  - FontAwasome
-
-### :camera: Page Screenshot
-* Login<br>
-
-<img src="https://user-images.githubusercontent.com/75787853/227540765-0df89171-66bc-4ffc-b3df-ad898f90bd8c.png" width=70% height=70%><br>
-
-* Register<br>
-
-<img src="https://user-images.githubusercontent.com/75787853/226199442-de7b6b82-20eb-422e-815e-b4839c27ee60.png" width=70% height=70%><br>
-
-* Home Page<br>
-
-<img src="https://user-images.githubusercontent.com/75787853/227549478-f12ff508-dbf5-46b3-9de9-7b66e5921ff1.png" width=70% height=70%><br>
-
-
-* Cart Page<br>
-
-<img src="https://user-images.githubusercontent.com/75787853/227549856-cd7e545b-8633-48c3-90f9-06345a159283.png" width=70% height=70%><br>
-<img src="https://user-images.githubusercontent.com/75787853/227550437-80f80c29-0203-45e2-ab96-50c5686eed0f.png" width=70% height=70%><br>
-
-* Dashboard Page<br>
-
-<img src="https://user-images.githubusercontent.com/75787853/226199799-65a06230-5d92-469b-b42c-81e727ada224.png" width=70% height=70%><br>
-<img src="https://user-images.githubusercontent.com/75787853/226199847-3f0c10bf-2ea1-412e-8946-642e44f3738f.png" width=70% height=70%><br>
-
+ - Intervention Image
 
 ### :link: About Creator
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://www.ferdyhape.site/)
