@@ -11,7 +11,8 @@
             <div class="row justify-content-center" style="min-height: 400px">
                 @foreach ($usercart as $product)
                     <div class="col-3 my-3">
-                        <div class="card shadow-sm border-0 text-black px-2">
+                        <div class="card shadow-sm border-0 text-black">
+                            <img src="{{ asset('storage/' . $product->image) }}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <div class="text-start">
                                     <h5 class="card-title">{{ $product->name }}</h5>

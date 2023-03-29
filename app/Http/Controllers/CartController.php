@@ -28,6 +28,7 @@ class CartController extends Controller
                 'users.id',
                 'products.name',
                 'products.description',
+                'products.image',
                 'products.price',
                 'cart__details.qty as qty',
                 'cart__details.id as cart_details_id',
