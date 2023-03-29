@@ -28,7 +28,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('/dashboard/product', ProductController::class);
 });
 Route::middleware('auth')->group(function () {
-    Route::get('/', [UserSideController::class, 'index']);
+    Route::get('/', [UserSideController::class, 'index'])->name('home');
     Route::resource('/cart', CartController::class);
     Route::resource('/toCart', CartDetailController::class);
     Route::post('/logout', [AuthController::class, 'logout']);
