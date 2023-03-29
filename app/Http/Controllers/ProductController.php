@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 
@@ -62,6 +63,8 @@ class ProductController extends Controller
 
         Product::create($newProduct);
 
+        $resizedImage = Image::make(public_path('storage/' . $newProduct['image']))->fit(400, 400)->save();
+
         return redirect('dashboard/product')->with('toast_success', 'Data successfully added');
     }
 
@@ -105,6 +108,7 @@ class ProductController extends Controller
             }
             $name_image_path = $request->file('image')->store('product-images', 'public');
             $updatedProduct['image'] = $name_image_path;
+            $resizedImage = Image::make(public_path('storage/' . $updatedProduct['image']))->fit(400, 400)->save();
         } else {
             $updatedProduct['image'] = $request->old_image;
         }
