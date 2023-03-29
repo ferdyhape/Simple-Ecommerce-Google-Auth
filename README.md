@@ -1,4 +1,4 @@
-# CART CRUD | Studi Independen GITS ID
+# TUGAS 6 | Studi Independen GITS ID
 
 ## :man: Creator
 Name: ``` Ferdy Hahan Pradana ```
