@@ -17,10 +17,10 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user() &&  Auth::user()->role_id == '1') {
+        if (Auth::user()->role_id == '1') {
             return $next($request);
         }
 
-        return redirect('/')->with('error', 'You have not admin access');
+        return redirect('/');
     }
 }
