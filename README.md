@@ -10,35 +10,34 @@ This repository was created to fulfill the Tugas 6 assignment in the Independent
 
 ## :open_book: How To Use
 1. Clone this repository
-```
-git clone https://github.com/ferdyhape/latihan_minibos_gits.git
-```
-
+    ```
+    git clone https://github.com/ferdyhape/latihan_minibos_gits.git
+    ```
 2. Copy paste **.env.example** file and rename as **.env**
 3. Adjust the database name in the env file on **DB_DATABASE**
 
 3. Generate Key
-```
-php artisan key:generate
-```
+    ```
+    php artisan key:generate
+    ```
 4. Install dependencies
-```
-composer install
-```
+    ```
+    composer install
+    ```
 5. Migrate the tables
-```
-php artisan migrate
-```
+    ```
+    php artisan migrate
+    ```
 
 6. Insert the data from seeder to database
-```
-php artisan db:seed
-```
+    ```
+    php artisan db:seed
+    ```
 
 7. Start the server
-```
-php artisan serve
-```
+    ```
+    php artisan serve
+    ```
 
 8. Login with this crediential
 
@@ -48,7 +47,6 @@ php artisan serve
         ```
         ferdy@hape.com
         ```
-
         Password: 
         ```
         password
@@ -59,7 +57,6 @@ php artisan serve
         ```
         ferdynonadmin@hape.com
         ```
-
         Password: 
         ```
         password
