@@ -37,6 +37,8 @@
 
     @yield('content')
 
+    @include('layouts.dashboard.footer')
+
     @include('layouts.dashboard.scripts')
     @include('sweetalert::alert')
 </body>
