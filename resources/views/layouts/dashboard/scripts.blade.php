@@ -129,8 +129,9 @@
             let id = $(this).data('id');
             document.getElementById('input_name').value = $(this).data('name');
             document.getElementById('input_price').value = $(this).data('price');
-            document.getElementById('input_sum').value = $(this).data('sum');
+            document.getElementById('input_stock').value = $(this).data('stock');
             document.getElementById('input_description').value = $(this).data('description');
+            document.getElementById('input_old_image').value = $(this).data('image');
             let category_id = $(this).data('category_id');
             console.log(category_id);
 
@@ -148,6 +149,32 @@
             document.getElementById("form_edit_modal").action = `/dashboard/product/${id}`;
         });
 
+        $('body').on('click', '.view-image', function() {
+            var image_path = $(this).data('image_path');
+            var name = $(this).data('name').toUpperCase();
+
+            Swal.fire({
+                text: `Image of a ${name}`,
+                imageUrl: `/storage/${image_path}`,
+                imageWidth: '70%',
+                imageAlt: 'Product-Image',
+            })
+        });
+
+        function previewImageCreate() {
+            const image = document.querySelector('#image');
+            const imgPreview = document.querySelector('.img-preview-create')
+
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
+
         let table = document.getElementById('product-table');
         fetch('http://127.0.0.1:8000/api/product')
             .then(response => response.json())
@@ -159,13 +186,16 @@
                     <td>${index+1}</td>
                     <td>${element.product_name}</td>
                     <td>${element.price}</td>
-                    <td>${element.sum}</td>
+                    <td>${element.stock}</td>
                     <td>${element.description}</td>
                     <td>${element.name}</td>
                     <td>
+                        <button class="badge bg-success border-0 text-white p-2 mx-2 view-image"
+                        data-image_path="${element.image}" data-name="${element.product_name}"><i
+                             class="fas fa-fw fa-images" style="font-size: 18px;"></i></button>
                         <button class="badge bg-warning border-0 text-white p-2 mx-2" data-bs-toggle="modal"
                             data-bs-target="#editModal" id="btn_edit_modal" 
-                            data-id="${element.id}" data-name="${element.product_name}" data-price="${element.price}" data-sum="${element.sum}" data-description="${element.description}" data-category_id="${element.category_id}" 
+                            data-id="${element.id}" data-name="${element.product_name}" data-price="${element.price}" data-stock="${element.stock}" data-description="${element.description}" data-category_id="${element.category_id}" data-image="${element.image}" 
                             ><i class="fas fa-fw fa-pencil"
                                 style="font-size: 18px;"></i></button>
                         <button class="badge bg-danger border-0 p-2 mx-2 delete-confirm"

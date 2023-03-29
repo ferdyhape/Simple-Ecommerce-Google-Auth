@@ -5,21 +5,23 @@
     <hr class="hr" />
     <button class="btn btn-success my-2" data-bs-toggle="modal" data-bs-target="#createModal">Add Product</button>
     <div class="justify-content-center">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Sum</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody id="product-table">
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Stock</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="product-table">
+                </tbody>
+            </table>
+        </div>
     </div>
 
     {{--  Modal Edit  --}}
@@ -58,9 +60,9 @@
                         </div>
                         <div class="form-group mb-2">
                             <input type="number"
-                                class="form-control form-control-product @error('sum') is-invalid @enderror" name="sum"
-                                placeholder="Sum" id="input_sum" required>
-                            @error('sum')
+                                class="form-control form-control-product @error('stock') is-invalid @enderror"
+                                name="stock" placeholder="Stock" id="input_stock" required>
+                            @error('stock')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
@@ -76,7 +78,7 @@
                                 </div>
                             @enderror
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mb-2">
                             <select class="form-control @error('category_id') is-invalid @enderror" id="category_id"
                                 name="category_id">
                                 @foreach ($categories as $category)
@@ -91,6 +93,18 @@
                                 </div>
                             @enderror
                         </div>
+                        <div class="input-group mb-2">
+                            <label class="input-group-text" for="image">Image</label>
+                            <input type="file" class="form-control @error('image') is-invalid @enderror" id="image"
+                                name="image" onchange="previewImageCreate()">
+                            @error('image')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <img class="img-preview-create img-fluid mx-auto" id="img-preview-create" style="display: none">
+                        <input type="hidden" value="" name="old_image" id="input_old_image">
                 </div>
 
                 <div class="modal-footer">
@@ -112,12 +126,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ url('dashboard/product') }}" method="POST">
+                    <form action="{{ url('dashboard/product') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group mb-2">
                             <input type="text"
-                                class="form-control form-control-product @error('name') is-invalid @enderror" name="name"
-                                placeholder="Name" required autofocus>
+                                class="form-control form-control-product @error('name') is-invalid @enderror"
+                                name="name" placeholder="Name" required autofocus>
                             @error('name')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -136,9 +150,9 @@
                         </div>
                         <div class="form-group mb-2">
                             <input type="text"
-                                class="form-control form-control-product @error('sum') is-invalid @enderror"
-                                name="sum" placeholder="Sum" required>
-                            @error('sum')
+                                class="form-control form-control-product @error('stock') is-invalid @enderror"
+                                name="stock" placeholder="Stock" required>
+                            @error('stock')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
@@ -155,7 +169,7 @@
                             @enderror
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group mb-2">
                             <select class="form-control @error('category_id') is-invalid @enderror" id="category_id"
                                 name="category_id" required>
                                 <option value="0">Choose a category</option>
@@ -169,6 +183,18 @@
                                 </div>
                             @enderror
                         </div>
+
+                        <div class="input-group mb-2">
+                            <label class="input-group-text" for="image">Image</label>
+                            <input type="file" class="form-control @error('image') is-invalid @enderror"
+                                id="image" name="image" onchange="previewImageCreate()">
+                            @error('image')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <img class="img-preview-create img-fluid mx-auto" id="img-preview-create" style="display: none">
 
                 </div>
                 <div class="modal-footer">
