@@ -13,9 +13,13 @@ use Illuminate\Validation\Rules\Password;
 
 class AuthController extends Controller
 {
-    public function index()
+    public function login()
     {
-        return view('auth.index');
+        return view('auth.login');
+    }
+    public function register()
+    {
+        return view('auth.register');
     }
     public function authenticate(Request $request)
     {
@@ -31,7 +35,7 @@ class AuthController extends Controller
             return redirect()->intended('/');
         }
 
-        return back()->with('toast_error', 'Login Failed');
+        return back()->with('toast_error', 'Login Failed! Invalid email or password!');
     }
     public function logout(Request $request)
     {
