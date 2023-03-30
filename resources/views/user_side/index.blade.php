@@ -31,8 +31,8 @@
                                             aria-describedby="inputGroup-sizing-sm" name="qty" value="1">
                                         <input type="hidden" name="product_id" value="{{ $product->id }}">
                                     </div>
-                                    <button type="submit" class="border-0 bg-transparent text-primary"><i
-                                            class="bi fs-4 bi-cart-plus-fill"></i></button>
+                                    <button type="submit" class="border-0 bg-transparent text-primary "><i
+                                            class="bi fs-4 bi-cart-plus-fill cart-icon"></i></button>
                                 </form>
                             </div>
                         </div>

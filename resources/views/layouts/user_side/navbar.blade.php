@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-light">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">SayonaraSHOP</a>
+        <a class="navbar-brand text-monospace" href="{{ url('/') }}">SayonaraSHOP</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -8,15 +8,16 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page"
+                    <a class="nav-link fw-semibold {{ Request::is('/') ? 'active' : '' }}" aria-current="page"
                         href="{{ url('/') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('cart') ? 'active' : '' }}" href="{{ url('cart') }}">Cart</a>
+                    <a class="nav-link fw-semibold {{ Request::is('cart') ? 'active' : '' }}"
+                        href="{{ url('cart') }}">Cart</a>
                 </li>
                 <li class="nav-item dropdown ">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
+                    <a class="nav-link fw-semibold dropdown-toggle" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         {{ auth()->user()->name }}
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end animate slideIn">

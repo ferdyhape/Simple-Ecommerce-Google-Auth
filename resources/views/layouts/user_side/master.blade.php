@@ -17,14 +17,30 @@
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        body {
+        /* body {
             background-color: rgb(239, 239, 239) !important
+        } */
+        nav {
+            background: rgb(91, 192, 248);
+            background: linear-gradient(90deg, rgba(91, 192, 248, 1) 0%, rgba(0, 129, 201, 1) 100%);
         }
 
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
             -webkit-appearance: none;
             margin: 0;
+        }
+
+        .nav-link {
+            color: azure;
+        }
+
+        .navbar-nav .nav-link.active {
+            color: #0B2447;
+        }
+
+        .cart-icon:hover {
+            color: #03C988;
         }
     </style>
 </head>
