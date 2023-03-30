@@ -19,9 +19,12 @@ use App\Http\Controllers\UserSideController;
 |
 */
 
-Route::get('/login', [AuthController::class, 'index'])->name('login');
-Route::post('/login', [AuthController::class, 'authenticate']);
-Route::post('/register', [AuthController::class, 'store']);
+
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [AuthController::class, 'index'])->name('login');
+    Route::post('/login', [AuthController::class, 'authenticate']);
+    Route::post('/register', [AuthController::class, 'store']);
+});
 
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('/dashboard/category', CategoryController::class);
