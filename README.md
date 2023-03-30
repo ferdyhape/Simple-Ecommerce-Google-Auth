@@ -61,6 +61,10 @@ This repository was created to fulfill the Tugas 6 assignment in the Independent
         ```
         password
         ```
+     - You can also use the register feature, but you don't get admin access (can't dashboard access):
+        ```
+        http://127.0.0.1:8000/register
+        ```
         
 7. Enjoy use!
 
