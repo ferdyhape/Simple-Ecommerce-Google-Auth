@@ -23,7 +23,7 @@ class ProductSeeder extends Seeder
             'stock' => '20',
             'category_id' => 1,
             'description' => $faker->sentence(5),
-            'image' => 'seeder-image/product-images/nasigoreng.jpg',
+            'image' => 'https://iili.io/HO27sfa.th.jpg',
         ]);
         Product::create([
             'name' => 'Nasi Bakar',
@@ -31,7 +31,7 @@ class ProductSeeder extends Seeder
             'stock' => '30',
             'category_id' => 1,
             'description' => $faker->sentence(5),
-            'image' => 'seeder-image/product-images/nasibakar.jpg',
+            'image' => 'https://iili.io/HO2YG1a.th.jpg',
         ]);
         Product::create([
             'name' => 'Nasi Tidak Goreng',
@@ -39,7 +39,7 @@ class ProductSeeder extends Seeder
             'stock' => '23',
             'category_id' => 1,
             'description' => $faker->sentence(5),
-            'image' => 'seeder-image/product-images/nasitidakgoreng.jpg',
+            'image' => 'https://iili.io/HO2YX7R.th.jpg',
         ]);
         Product::create([
             'name' => 'Nasi Tidak Bakar',
@@ -47,7 +47,7 @@ class ProductSeeder extends Seeder
             'stock' => '10',
             'category_id' => 1,
             'description' => $faker->sentence(5),
-            'image' => 'seeder-image/product-images/nasitidakbakar.jpg',
+            'image' => 'https://iili.io/HO2YNII.th.jpg',
         ]);
         Product::create([
             'name' => 'Es Teh',
@@ -55,7 +55,7 @@ class ProductSeeder extends Seeder
             'stock' => '87',
             'category_id' => 2,
             'description' => $faker->sentence(5),
-            'image' => 'seeder-image/product-images/esteh.jpg',
+            'image' => 'https://iili.io/HO2YeLX.th.jpg',
         ]);
         Product::create([
             'name' => 'Es Teh Anget',
@@ -63,7 +63,7 @@ class ProductSeeder extends Seeder
             'stock' => '22',
             'category_id' => 2,
             'description' => $faker->sentence(5),
-            'image' => 'seeder-image/product-images/estehanget.jpg',
+            'image' => 'https://iili.io/HO2YSrG.th.jpg',
         ]);
         Product::create([
             'name' => 'Es Bukan Teh',
@@ -71,7 +71,7 @@ class ProductSeeder extends Seeder
             'stock' => '10',
             'category_id' => 2,
             'description' => $faker->sentence(5),
-            'image' => 'seeder-image/product-images/esbukanteh.jpg',
+            'image' => 'https://iili.io/HO2YiIS.th.jpg',
         ]);
         Product::create([
             'name' => 'Es Teh Tidak Manis',
@@ -79,7 +79,7 @@ class ProductSeeder extends Seeder
             'stock' => '10',
             'category_id' => 2,
             'description' => $faker->sentence(5),
-            'image' => 'seeder-image/product-images/estehtidakmanis.jpg',
+            'image' => 'https://iili.io/HO2Ysh7.th.jpg',
         ]);
     }
 }

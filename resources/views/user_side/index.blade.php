@@ -6,7 +6,12 @@
             @foreach ($products as $product)
                 <div class="col-3 my-3">
                     <div class="card shadow border-0 text-black ">
-                        <img src="{{ asset('storage/' . $product->image) }}" class="card-img-top" alt="...">
+                        @if ($product->id <= 8)
+                            {{-- this is fore dummy image (product with seeder) --}}
+                            <img src="{{ $product->image }}" class="card-img-top" alt="...">
+                        @else
+                            <img src="{{ asset('storage/' . $product->image) }}" class="card-img-top" alt="...">
+                        @endif
                         <div class="card-body">
                             <div class="text-start">
                                 <h5 class="card-title">{{ $product->name }}</h5>
