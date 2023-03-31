@@ -9,10 +9,39 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\StoreUserRequest;
+use Socialite;
 use Illuminate\Validation\Rules\Password;
 
 class AuthController extends Controller
 {
+    public function redirectToGoole()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function handleGoogleCallback()
+    {
+        try {
+            $user = Socialite::driver('google')->user();
+            $finduser = User::where('google_id', $user->id)->first();
+            if ($finduser) {
+                Auth::login($finduser);
+                return redirect('/')->with('success', 'Welcome back, ' . $finduser->name);
+            } else {
+                $newUser = User::create([
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'level' => 'user',
+                    'password'  => '0',
+                    'google_id' => $user->id
+                ]);
+                Auth::login($newUser);
+                return redirect('/')->with('success', 'Welcome, ' . $newUser->name);
+            }
+        } catch (Exception $e) {
+            return redirect('/login');
+        }
+    }
     public function login()
     {
         return view('auth.login');

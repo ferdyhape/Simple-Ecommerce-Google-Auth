@@ -23,6 +23,8 @@ use App\Http\Controllers\UserSideController;
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::get('/register', [AuthController::class, 'register'])->name('register');
+    Route::get('/login/google', [AuthController::class, 'redirectToGoole'])->name('loginwithgoogle');
+    Route::get('/login/google/callback', [AuthController::class, 'handleGoogleCallback'])->name('loginwithgoogle');
     Route::post('/login', [AuthController::class, 'authenticate']);
     Route::post('/register', [AuthController::class, 'store']);
 });
