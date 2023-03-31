@@ -37,6 +37,8 @@ class AuthController extends Controller
                     'password' => Hash::make(Str::random(10)),
                 ]);
                 Auth::login($newUser);
+                $newCart['user_id'] = $newUser->id;
+                Cart::create($newCart);
                 return redirect('/')->with('toast_success', 'Welcome, ' . $newUser->name);
             }
         } catch (Exception $e) {
@@ -84,7 +86,6 @@ class AuthController extends Controller
     {
 
         $newUser = $request->all();
-        $newUser['role_id'] = 2;
         $newUser['password'] = Hash::make($newUser['password']);
         $newUser = User::create($newUser);
         $newCart['user_id'] = $newUser->id;

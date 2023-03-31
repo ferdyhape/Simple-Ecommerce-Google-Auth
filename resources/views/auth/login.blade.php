@@ -25,7 +25,7 @@
                             </div>
                             <div class="form-group mt-3">
                                 <input id="password-field" type="password" class=" form-control" name="password" required
-                                    placeholder="Passowrd">
+                                    placeholder="Password">
                                 @error('password')
                                     <div class="invalid-feedback">
                                         {{ $message }}
