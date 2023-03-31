@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
+use Socialite;
 use App\Models\Cart;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -9,7 +11,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\StoreUserRequest;
-use Socialite;
 use Illuminate\Validation\Rules\Password;
 
 class AuthController extends Controller
@@ -26,7 +27,7 @@ class AuthController extends Controller
             $finduser = User::where('google_id', $user->id)->first();
             if ($finduser) {
                 Auth::login($finduser);
-                return redirect('/')->with('success', 'Welcome back, ' . $finduser->name);
+                return redirect('/')->with('toast_success', 'Welcome back, ' . $finduser->name);
             } else {
                 $newUser = User::create([
                     'name' => $user->name,
@@ -36,7 +37,7 @@ class AuthController extends Controller
                     'google_id' => $user->id
                 ]);
                 Auth::login($newUser);
-                return redirect('/')->with('success', 'Welcome, ' . $newUser->name);
+                return redirect('/')->with('toast_success', 'Welcome, ' . $newUser->name);
             }
         } catch (Exception $e) {
             return redirect('/login');
@@ -61,7 +62,10 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/');
+            if (auth()->user()->role_id == 1) {
+                return redirect()->intended('/')->with('toast_success', 'Welcome back, Admin ' . auth()->user()->name);
+            }
+            return redirect()->intended('/')->with('toast_success', 'Welcome back, ' . auth()->user()->name);
         }
 
         return back()->with('toast_error', 'Login Failed! Invalid email or password!');
