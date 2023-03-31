@@ -9,6 +9,20 @@
 - This repository was created to fulfill the Tugas 6 assignment in the Independent Fullstack Web Developer Study program by GITS.id partner, MSIB Batch 4.
 - You can use the login with google feature **if you have GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET from after creating a google cloud account and it has been set for authentication (settings on .env)**
 
+## :camera: Demo
+* Login Admin
+
+    https://user-images.githubusercontent.com/75787853/229155087-06606ba0-71c5-4f6f-91c4-66b9536b1f75.mp4
+
+* Login Non Admin
+
+    https://user-images.githubusercontent.com/75787853/229155270-800dd33d-4fbc-4ff5-a09f-80370d4e2c5a.mp4
+
+* Login With Google (Setup Google Cloud)
+
+    https://user-images.githubusercontent.com/75787853/229155404-b2b98d00-9e24-4fcf-bc89-d93f36b8ff31.mp4
+
+
 ## :open_book: How To Use
 1.  Clone this repository
     ```
