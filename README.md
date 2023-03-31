@@ -1,9 +1,9 @@
 # TUGAS 6 | Studi Independen GITS ID
 
 ## :man: Creator
-Name: ``` Ferdy Hahan Pradana ```
+- Name: ``` Ferdy Hahan Pradana ```
 
-Campus: ``` Politeknik Negeri Malang ```
+- Campus: ``` Politeknik Negeri Malang ```
 
 ## :pushpin: Description
 - This repository was created to fulfill the Tugas 6 assignment in the Independent Fullstack Web Developer Study program by GITS.id partner, MSIB Batch 4.
