@@ -6,40 +6,45 @@ Name: ``` Ferdy Hahan Pradana ```
 Campus: ``` Politeknik Negeri Malang ```
 
 ## :pushpin: Description
-This repository was created to fulfill the Tugas 6 assignment in the Independent Fullstack Web Developer Study program by GITS.id partner, MSIB Batch 4.
+- This repository was created to fulfill the Tugas 6 assignment in the Independent Fullstack Web Developer Study program by GITS.id partner, MSIB Batch 4.
+- You can use the login with google feature **if you have GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET from after creating a google cloud account and it has been set for authentication (settings on .env)**
 
 ## :open_book: How To Use
-1. Clone this repository
+1.  Clone this repository
     ```
     git clone https://github.com/ferdyhape/latihan_minibos_gits.git
     ```
-2. Copy paste **.env.example** file and rename as **.env**
-3. Adjust the database name in the env file on **DB_DATABASE**
+2.  Copy paste **.env.example** file and rename as **.env**
+3.  Adjust the database name in the env file on **DB_DATABASE**
 
-3. Generate Key
+3.  Generate Key
     ```
     php artisan key:generate
     ```
-4. Install dependencies
+4.  Install dependencies
     ```
     composer install
     ```
-5. Migrate the tables
+5.  Generate mirror link
+    ```
+    php artisan storage:link
+    ```
+6.  Migrate the tables
     ```
     php artisan migrate
     ```
 
-6. Insert the data from seeder to database
+7.  Insert the data from seeder to database
     ```
     php artisan db:seed
     ```
 
-7. Start the server
+8.  Start the server
     ```
     php artisan serve
     ```
 
-8. Login with this crediential
+9.  Login with this crediential
 
     - If you want to use admin role (can dashboard access):
 
@@ -66,7 +71,7 @@ This repository was created to fulfill the Tugas 6 assignment in the Independent
         http://127.0.0.1:8000/register
         ```
         
-7. Enjoy use!
+10. Enjoy use!
 
 ## :gear: Technology Used:
 
