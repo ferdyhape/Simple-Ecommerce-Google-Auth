@@ -6,6 +6,7 @@ use Exception;
 use Socialite;
 use App\Models\Cart;
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -32,9 +33,8 @@ class AuthController extends Controller
                 $newUser = User::create([
                     'name' => $user->name,
                     'email' => $user->email,
-                    'level' => 'user',
-                    'password'  => '0',
-                    'google_id' => $user->id
+                    'google_id' => $user->id,
+                    'password' => Hash::make(Str::random(10)),
                 ]);
                 Auth::login($newUser);
                 return redirect('/')->with('toast_success', 'Welcome, ' . $newUser->name);

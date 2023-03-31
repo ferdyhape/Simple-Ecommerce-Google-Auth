@@ -26,6 +26,10 @@ class User extends Authenticatable
         'google_id',
     ];
 
+    protected $attributes = [
+        'role_id' => 2,
+    ];
+
     /**
      * The attributes that should be hidden for serialization.
      *
