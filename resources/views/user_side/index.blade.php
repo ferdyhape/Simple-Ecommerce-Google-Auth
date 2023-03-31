@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             @foreach ($products as $product)
                 <div class="col-3 my-3">
-                    <div class="card shadow-sm border-0 text-black ">
+                    <div class="card shadow border-0 text-black ">
                         <img src="{{ asset('storage/' . $product->image) }}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <div class="text-start">

@@ -1,7 +1,7 @@
 @extends('layouts.user_side.master')
 @section('title', 'Cart')
 @section('content')
-    <div class="container py-5">
+    <div class="container py-4">
         @if (is_null($usercart))
             <div class="text-muted" style="min-height: 400px">
                 You have no product in cart, go to <a href="{{ url('/') }}" class="text-decoration-none">home</a> to
@@ -11,7 +11,7 @@
             <div class="row justify-content-center" style="min-height: 400px">
                 @foreach ($usercart as $product)
                     <div class="col-3 my-3">
-                        <div class="card shadow-sm border-0 text-black">
+                        <div class="card shadow border-0 text-black">
                             <img src="{{ asset('storage/' . $product->image) }}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <div class="text-start">
