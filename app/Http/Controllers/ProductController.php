@@ -103,7 +103,7 @@ class ProductController extends Controller
         $updatedProduct = $request->all();
 
         if ($request->file('image')) {
-            if ($request->old_image != "product-images/current-image.png") {
+            if ($request->old_image != "seeder-image/product-images/current-image.png") {
                 File::delete('storage/' . $request->old_image);
             }
             $name_image_path = $request->file('image')->store('product-images', 'public');
@@ -127,7 +127,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        if ($product->image != "product-images/current-image.png") {
+        if ($product->image != "seeder-image/product-images/current-image.png") {
             File::delete('storage/' . $product->image);
         }
         $product->delete();
